@@ -4,6 +4,6 @@ Comment=ProzGUI download accelerator
 Comment[pl]=ProzGUI - program do szybkiego pobierania
 Exec=prozgui
 Icon=prozgui.png
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8
