@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=ProzGUI
+Name[br]=ProzGUI
+Name[da]=ProzGUI
+Name[de]=ProzGUI
+Name[es]=ProzGUI
+Name[fr]=ProzGUI
+Name[ja]=ProzGUI
+Name[ko]=ProzGUI
+Name[nl]=ProzGUI
+Name[pl]=ProzGUI
+Comment=ProzGUI download accelerator
+Exec=prozgui
+Icon=prozgui.xpm
+Terminal=0
+Type=Application
