@@ -7,7 +7,7 @@ Summary:	An GUI advanced Linux download manager
 Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.4
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
@@ -91,7 +91,8 @@ aclocal
 cd ..
 %configure \
     --with-fltk-includes=%{_includedir} \
-    --with-fltk-libs=%{_libdir}
+    --with-fltk-libs=%{_libdir} \
+    --enable-shared
 %{__make}
 
 %install
@@ -112,14 +113,19 @@ mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT%{_datadir}
 
 mv -f libprozilla/docs/HACKING ./libprozilla/
 
+%find_lang %{name} --all-name
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS CREDITS* ChangeLog NEWS README TODO docs/FAQ
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/locale/*
+%attr(755,root,root) %{_libdir}/libprozilla.so.*.*
 %{_applnkdir}/Network/FTP/%{name}.desktop
 %{_pixmapsdir}/*
 %{_mandir}/man1/*
@@ -127,8 +133,10 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc libprozilla/{TODO-devel,README-devel,HACKING}
+%attr(755,root,root) %{_libdir}/libprozilla.la
+%attr(755,root,root) %{_libdir}/libprozilla.so
 %{_includedir}/*.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libprozilla*
+%{_libdir}/libprozilla.a
