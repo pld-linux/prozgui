@@ -1,0 +1,10 @@
+--- prozgui-2.0.5beta/src/savefile.cpp.orig	2002-02-04 01:47:33.000000000 +0100
++++ prozgui-2.0.5beta/src/savefile.cpp	2004-04-07 01:24:05.147932752 +0200
+@@ -4,6 +4,7 @@
+ 
+ #include <malloc.h>
+ #include <alloca.h>
++#include <stdlib.h>
+ #include <string.h>
+ #include <assert.h>
+ #include <limits.h>
