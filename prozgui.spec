@@ -79,13 +79,13 @@ Biblioteka prozilli linkowana statycznie.
 %build
 rm -f missing acinclude.m4
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 cd libprozilla
 rm -f missing
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 cd ..
