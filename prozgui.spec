@@ -11,6 +11,7 @@ Release:	2
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
+# Source0-md5:	293f47b1300d42d8a526fa83a9ca64f7
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-acinclude.m4.patch
