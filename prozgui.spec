@@ -21,8 +21,6 @@ BuildRequires:	fltk-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define         _prefix         /usr/X11R6
-%define         _mandir         %{_prefix}/man
 
 %description
 This is the GUI version of Prozilla. It uses libprozilla and the the
