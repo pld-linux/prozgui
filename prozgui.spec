@@ -3,7 +3,7 @@
 #
 # waiting for "stable" tarball
 #
-Summary:	An GUI advanced Linux download manager
+Summary:	A GUI advanced Linux download manager
 Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.4
