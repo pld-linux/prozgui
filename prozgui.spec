@@ -18,9 +18,11 @@ Patch0:		%{name}-po.patch
 Patch1:		%{name}-opt.patch
 Patch2:		%{name}-include.patch
 URL:		http://prozilla.genesys.ro/?p=prozgui
+BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fltk-devel >= 1.1.0
+BuildRequires:	gettext-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
