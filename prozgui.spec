@@ -1,21 +1,21 @@
 #
 # TODO:
 #
-# descriptions, summaries, cleanups, adapterize,
+# descriptions, summaries, cleanups
 #
 Summary:	An GUI advanced Linux download manager
 Name:		prozgui
 Version:	2.0.4
 Release:	0.1
-License:	GNU
+License:	GPL
 Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
 Source1:	%{name}.desktop
-Url:		http://prozilla.delrom.ro/
+URL:		http://prozilla.delrom.ro/
 Icon:		prozgui48.xpm
 BuildRequires:	fltk-devel
 Requires:	fltk
-BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
 %define         _mandir         %{_prefix}/man
@@ -33,51 +33,53 @@ of the file, thus defeating existing internet congestion prevention
 methods which slow down a single connection based download.
 
 %package devel
-Summary:	development files
-Group:          Development/Libraries
-Requires:       %{name} = %{version}
+Summary:	prozilla development files
+Group:		Development/Libraries
+Requires:	%{name} = %{version}
 
 %description devel
-prozilla headers
+prozilla development fils.
 
 %package static
-Summary:	static files
+Summary:	Static files
 Group:		Development/Libraries
-Requires:       %{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
-prozilla static libraries
+Prozilla static libraries.
 
 %prep
 %setup -q -n %{name}-%{version}beta3
 
 %build
 %configure2_13 \
-    --with-fltk-includes=/usr/X11R6/include \
-    --with-fltk-libs=/usr/X11R6/lib
+    --with-fltk-includes=%{_includedir} \
+    --with-fltk-libs=%{_libdir}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Network/FTP} \
+	$RPM_BUILD_ROOT{%{_mandir}/man1,%{_includedir}}
+
 %{__make} DESTDIR=$RPM_BUILD_ROOT prefix=$RPM_BUILD_ROOT install
 
-
 # Mandrake Menu entry
-install -d $RPM_BUILD_ROOT/usr/X11R6/share/{pixmaps,applnk/Network/FTP}
-install -d $RPM_BUILD_ROOT/usr/X11R6/include
-install %{SOURCE1} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Network/FTP/%{name}.desktop
-cp src/images/Pz12.xpm $RPM_BUILD_ROOT/usr/X11R6/share/pixmaps/prozgui.xpm
+install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/FTP/%{name}.desktop
+cp src/images/Pz12.xpm $RPM_BUILD_ROOT%{_datadir}/pixmaps/prozgui.xpm
 
-mv docs/FAQ ./
+install docs/FAQ RPM_BUILD_ROOT%{_mandir}/man1
+
 mv man/prozgui.1 ./
 mv libprozilla/TODO libprozilla/TODO-devel
 mv libprozilla/README libprozilla/README-devel
-mv libprozilla/src/{prozilla.h,netrc.h} $RPM_BUILD_ROOT/usr/X11R6/include/
-mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT/usr/X11R6/share/
+mv libprozilla/src/{prozilla.h,netrc.h} $RPM_BUILD_ROOT%{_includedir}/
+mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT%{_datadir}/
 
-gzip -9nf {ABOUT-NLS,AUTHORS,COPYING,CREDITS*,ChangeLog,INSTALL,NEWS,README,TODO,FAQ,prozgui.1}
+gzip -9nf AUTHORS CREDITS* ChangeLog NEWS README TODO FAQ
 
 mv libprozilla/docs/HACKING ./libprozilla/
+
 gzip -9nf libprozilla/{TODO-devel,README-devel,HACKING}
 
 %clean
@@ -85,13 +87,16 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) /usr/X11R6/bin/
-/usr/X11R6/share/
 %doc *.gz
+%attr(755,root,root) %{_bindir}/*
+%{_datadir}/*
+%{_mandir}/man1/*
 
 %files devel
-/usr/X11R6/include/*.h
+%defattr(644,root,root,755)
 %doc libprozilla/*.gz
+%{_includedir}/*.h
 
 %files static
-/usr/X11R6/lib/libprozilla*
+%defattr(644,root,root,755)
+%{_libdir}/libprozilla*
