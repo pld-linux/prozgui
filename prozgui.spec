@@ -7,7 +7,7 @@ Summary:	An GUI advanced Linux download manager
 Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.4
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
@@ -110,18 +110,14 @@ mv -f libprozilla/README libprozilla/README-devel
 mv -f libprozilla/src/{prozilla.h,netrc.h} $RPM_BUILD_ROOT%{_includedir}
 mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT%{_datadir}
 
-gzip -9nf AUTHORS CREDITS* ChangeLog NEWS README TODO docs/FAQ
-
 mv -f libprozilla/docs/HACKING ./libprozilla/
-
-gzip -9nf libprozilla/{TODO-devel,README-devel,HACKING}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*.gz
+%doc AUTHORS CREDITS* ChangeLog NEWS README TODO docs/FAQ
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/locale/*
 %{_applnkdir}/Network/FTP/%{name}.desktop
@@ -130,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc libprozilla/*.gz
+%doc libprozilla/{TODO-devel,README-devel,HACKING}
 %{_includedir}/*.h
 
 %files static
