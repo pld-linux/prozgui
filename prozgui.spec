@@ -80,14 +80,14 @@ Biblioteka prozilli linkowana statycznie.
 rm -f missing acinclude.m4
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 cd libprozilla
 rm -f missing
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 cd ..
 %configure \
     --with-fltk-includes=%{_includedir} \
