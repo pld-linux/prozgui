@@ -28,14 +28,18 @@ methods which slow down a single connection based download.
 
 
 %prep
+%setup -q
 
 %build
-%configure2_13
+%configure2_13 \
+    --with-fltk-includes=/usr/X11R6/include \
+    --with-fltk-libs=/usr/X11R6/lib \
+    --includedir=/usr/X11R6/include
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
+%{__make} prefix=$RPM_BUILD_ROOT%{_prefix}/X11R6/ install
 
 
 # Mandrake Menu entry
