@@ -122,7 +122,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.gz docs/*.gz
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/*
+%{_datadir}/locale/*
+%{_applnkdir}/Network/FTP/%{name}.desktop
+%{_pixmapsdir}/*
 %{_mandir}/man1/*
 
 %files devel
