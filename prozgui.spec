@@ -42,7 +42,7 @@ po³±czeñ do servera i ka¿de z nich ¶ci±ga tylko czê¶æ programu. Dziêki
 temu mozliwe jest ominiêcie ograniczeñ transferu nak³adanych na
 pojedyncze po³±czenie.
 
-Interface jest zaprojektowany i zbudowany z FLTK.
+Interface zosta³ zaprojektowany i zbudowany w oparciu o bibliotekê FLTK.
 
 %package devel
 Summary:	prozilla development files
