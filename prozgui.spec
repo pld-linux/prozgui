@@ -4,7 +4,7 @@
 # waiting for "stable" tarball
 #
 Summary:	An GUI advanced Linux download manager
-Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym.
+Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.4
 Release:	0.1
@@ -13,9 +13,12 @@ Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
+Patch0:		%{name}-acinclude.m4.patch
 URL:		http://prozilla.delrom.ro/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	fltk-devel
-Requires:	fltk
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define         _prefix         /usr/X11R6
@@ -53,7 +56,7 @@ Requires:	%{name} = %{version}
 %description devel
 prozilla development files.
 
-%description -l pl devel
+%description devel -l pl
 Narzêdzia programistyczne dla prozilli.
 
 %package static
@@ -65,14 +68,27 @@ Requires:	%{name}-devel = %{version}
 %description static
 prozilla static library.
 
-%description -l pl static
+%description static -l pl
 Biblioteka prozilli linkowana statycznie.
 
 %prep
 %setup -q -n %{name}-%{version}beta3
+%patch0 -p1
 
 %build
-%configure2_13 \
+rm -f missing acinclude.m4
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c -f
+cd libprozilla
+rm -f missing
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c -f
+cd ..
+%configure \
     --with-fltk-includes=%{_includedir} \
     --with-fltk-libs=%{_libdir}
 %{__make}
