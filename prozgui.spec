@@ -11,7 +11,7 @@ License:	GPL
 Group:		Applications/Networking
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}beta3.tar.gz
 Source1:	%{name}.desktop
-Icon:		%{name}.png
+Source2:	%{name}.png
 URL:		http://prozilla.delrom.ro/
 BuildRequires:	fltk-devel
 Requires:	fltk
@@ -64,7 +64,6 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Network/FTP} \
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT prefix=$RPM_BUILD_ROOT install
 
-# Mandrake Menu entry
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/FTP/%{name}.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/*
 
