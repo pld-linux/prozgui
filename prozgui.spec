@@ -37,15 +37,16 @@ of the file, thus defeating existing internet congestion prevention
 methods which slow down a single connection based download.
 
 %description -l pl
-ProZilla jest programem typu "download accellerator" dla Linuxa
+ProZilla jest programem typu "download accellerator" dla Linuksa
 napisanym, aby przyspieszyæ proces ¶ci±gania plików. Czêsto daje
 zwiêkszenie prêdko¶ci do 200-300%. Wspiera protoko³y HTTP i FTP, a
 jego teoretyczne dzia³anie jest bardzo proste. Program otwiera wiele
-po³±czeñ do servera i ka¿de z nich ¶ci±ga tylko czê¶æ programu. Dziêki
+po³±czeñ do servera i ka¿de z nich ¶ci±ga tylko czê¶æ pliku. Dziêki
 temu mozliwe jest ominiêcie ograniczeñ transferu nak³adanych na
 pojedyncze po³±czenie.
 
-Interface zosta³ zaprojektowany i zbudowany w oparciu o bibliotekê FLTK.
+Interface zosta³ zaprojektowany i zbudowany w oparciu o bibliotekê
+FLTK.
 
 %package devel
 Summary:	prozilla development files
@@ -101,17 +102,17 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_applnkdir}/Network/FTP} \
 %{__make} DESTDIR=$RPM_BUILD_ROOT prefix=$RPM_BUILD_ROOT install
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/FTP/%{name}.desktop
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-mv man/prozgui.1 ./
-mv libprozilla/TODO libprozilla/TODO-devel
-mv libprozilla/README libprozilla/README-devel
-mv libprozilla/src/{prozilla.h,netrc.h} $RPM_BUILD_ROOT%{_includedir}/
-mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT%{_datadir}/
+mv -f man/prozgui.1 .
+mv -f libprozilla/TODO libprozilla/TODO-devel
+mv -f libprozilla/README libprozilla/README-devel
+mv -f libprozilla/src/{prozilla.h,netrc.h} $RPM_BUILD_ROOT%{_includedir}
+mv -f $RPM_BUILD_ROOT/share/locale/ $RPM_BUILD_ROOT%{_datadir}
 
 gzip -9nf AUTHORS CREDITS* ChangeLog NEWS README TODO docs/FAQ
 
-mv libprozilla/docs/HACKING ./libprozilla/
+mv -f libprozilla/docs/HACKING ./libprozilla/
 
 gzip -9nf libprozilla/{TODO-devel,README-devel,HACKING}
 
