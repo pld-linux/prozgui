@@ -61,7 +61,7 @@ Narzêdzia programistyczne dla prozilli.
 
 %package static
 Summary:	prozilla static library
-Summary(pl):	Bilbioteka prozilli linkowana statycznie
+Summary(pl):	Bilbioteka prozilli skonsolidowana statycznie
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -69,7 +69,7 @@ Requires:	%{name}-devel = %{version}
 prozilla static library.
 
 %description static -l pl
-Biblioteka prozilli linkowana statycznie.
+Biblioteka prozilli skonsolidowana statycznie.
 
 %prep
 %setup -q -n %{name}-%{version}beta3
