@@ -9,7 +9,7 @@ Group:		Applications/Internet
 Source0:	http://prozilla.delrom.ro/packages/prozgui/tarballs/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Url:		http://prozilla.delrom.ro/
-Icon:		%{name}48.xpm
+Icon:		prozgui48.xpm
 BuildRequires:	fltk-devel
 Requires:	fltk
 BuildRoot:      %{tmpdir}/%{name}-%{version}-root-%(id -u -n)
