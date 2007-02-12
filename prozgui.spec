@@ -3,7 +3,7 @@
 # waiting for "stable" tarball
 #
 Summary:	A GUI advanced Linux download manager
-Summary(pl):	Zaawansowany program do ¶ci±gania plików z interfejsem graficznym
+Summary(pl.UTF-8):   Zaawansowany program do Å›ciÄ…gania plikÃ³w z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.5
 %define	bver	beta
@@ -38,40 +38,40 @@ connections to a server, and each of the connections downloads a part
 of the file, thus defeating existing internet congestion prevention
 methods which slow down a single connection based download.
 
-%description -l pl
+%description -l pl.UTF-8
 ProZilla jest programem typu "download accellerator" dla Linuksa
-napisanym, aby przyspieszyæ proces ¶ci±gania plików. Czêsto daje
-zwiêkszenie prêdko¶ci do 200-300%. Wspiera protoko³y HTTP i FTP, a
-jego teoretyczne dzia³anie jest bardzo proste. Program otwiera wiele
-po³±czeñ do serwera i ka¿de z nich ¶ci±ga tylko czê¶æ pliku. Dziêki
-temu mo¿liwe jest ominiêcie ograniczeñ transferu nak³adanych na
-pojedyncze po³±czenie.
+napisanym, aby przyspieszyÄ‡ proces Å›ciÄ…gania plikÃ³w. CzÄ™sto daje
+zwiÄ™kszenie prÄ™dkoÅ›ci do 200-300%. Wspiera protokoÅ‚y HTTP i FTP, a
+jego teoretyczne dziaÅ‚anie jest bardzo proste. Program otwiera wiele
+poÅ‚Ä…czeÅ„ do serwera i kaÅ¼de z nich Å›ciÄ…ga tylko czÄ™Å›Ä‡ pliku. DziÄ™ki
+temu moÅ¼liwe jest ominiÄ™cie ograniczeÅ„ transferu nakÅ‚adanych na
+pojedyncze poÅ‚Ä…czenie.
 
-Interface zosta³ zaprojektowany i zbudowany w oparciu o bibliotekê
+Interface zostaÅ‚ zaprojektowany i zbudowany w oparciu o bibliotekÄ™
 FLTK.
 
 %package devel
 Summary:	Header files for prozilla library
-Summary(pl):	Pliki nag³ówkowe biblioteki prozilli
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki prozilli
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for prozilla library.
 
-%description devel -l pl
-Pliki nag³ówkowe biblioteki prozilli.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe biblioteki prozilli.
 
 %package static
 Summary:	prozilla static library
-Summary(pl):	Statyczna biblioteka prozilli
+Summary(pl.UTF-8):   Statyczna biblioteka prozilli
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 prozilla static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka prozilli.
 
 %prep
