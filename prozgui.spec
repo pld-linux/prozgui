@@ -3,7 +3,7 @@
 # waiting for "stable" tarball
 #
 Summary:	A GUI advanced Linux download manager
-Summary(pl.UTF-8):   Zaawansowany program do ściągania plików z interfejsem graficznym
+Summary(pl.UTF-8):	Zaawansowany program do ściągania plików z interfejsem graficznym
 Name:		prozgui
 Version:	2.0.5
 %define	bver	beta
@@ -52,7 +52,7 @@ FLTK.
 
 %package devel
 Summary:	Header files for prozilla library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki prozilli
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki prozilli
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -64,7 +64,7 @@ Pliki nagłówkowe biblioteki prozilli.
 
 %package static
 Summary:	prozilla static library
-Summary(pl.UTF-8):   Statyczna biblioteka prozilli
+Summary(pl.UTF-8):	Statyczna biblioteka prozilli
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
