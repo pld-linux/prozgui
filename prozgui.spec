@@ -1,6 +1,8 @@
 #
 # TODO:
-# waiting for "stable" tarball
+# - waiting for "stable" tarball
+# - build fails on:
+#   /usr/lib/gcc/i686-pld-linux/4.2.0/include/stddef.h:152: error: declaration does not declare anything
 #
 Summary:	A GUI advanced Linux download manager
 Summary(pl.UTF-8):	Zaawansowany program do ściągania plików z interfejsem graficznym
@@ -17,8 +19,8 @@ Source2:	%{name}.png
 Patch0:		%{name}-po.patch
 Patch1:		%{name}-opt.patch
 Patch2:		%{name}-include.patch
+Patch3:		%{name}-gcc4.patch
 URL:		http://prozilla.genesys.ro/?p=prozgui
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fltk-devel >= 1.1.0
@@ -79,6 +81,7 @@ Statyczna biblioteka prozilli.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 head -n 98 acinclude.m4 > acinclude.m4.tmp
 mv -f acinclude.m4.tmp acinclude.m4
