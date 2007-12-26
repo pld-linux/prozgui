@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=ProzGUI
 Comment=ProzGUI download accelerator
 Comment[pl]=ProzGUI - program do szybkiego pobierania
 Exec=prozgui
-Icon=prozgui.png
+Icon=prozgui
 Terminal=false
 Type=Application
 Categories=Network;FileTransfer;
