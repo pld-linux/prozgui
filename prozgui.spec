@@ -24,7 +24,7 @@ URL:		http://prozilla.genesys.ro/?p=prozgui
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	fltk-devel >= 1.1.0
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
